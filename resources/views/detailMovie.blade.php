@@ -16,7 +16,7 @@
             <p><strong>Director:</strong> {{ $movie->director }}</p>
             <p><strong>Trailer:</strong> <a href="{{ $movie->trailer_url }}" target="_blank">Watch Trailer</a></p>
 
-            <a href="{{ url()->previous() }}" class="btn btn-primary mt-3">Back to Movies</a>
+            <a href="{{ url()->previous() }}" class="btn btn-dark mt-3">Back to Movies</a>
         </div>
     </div>
 </div>

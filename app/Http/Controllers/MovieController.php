@@ -112,7 +112,7 @@ class MovieController extends Controller
             'age' => $request->age,
             'duration' => $request->duration,
             'trailer_url' => $request->trailer_url,
-            'price' => $request->price,
+            'price' => $request->price
         ]);
     
         return redirect()->route('movie.index')->with('success', 'Movie updated successfully');

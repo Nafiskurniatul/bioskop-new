@@ -31,7 +31,7 @@
                 <img src="{{ asset('images/'.$movie->img_url) }}" class="card-img-top" alt="">
                 <div class="card-body text-center">
                     <h5 class="card-title">{{ $movie->name }}</h5>
-                    <a href="{{ route('movies.show', $movie->id) }}" class="btn btn-primary">View Details</a>
+                    <a href="{{ route('movies.show', $movie->id) }}" class="btn btn-dark">View Details</a>
                 </div>
             </div>
         </div>
