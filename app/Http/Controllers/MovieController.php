@@ -8,20 +8,20 @@ use Illuminate\Http\Request;
 class MovieController extends Controller
 {
     public function index() {
-        $movies = Movie::all();
+        $movies = Movie::all(); // mengambil semua data dari database
         return view('movies.view_movie',[
             'movies' => $movies
         ]);
     }
 
     public function create() {
-        return view('movies.add_movie');
+        return view('movies.add_movie'); // menampilkan semua halaman/view
     }
 
-    public function store(Request $request) {
+    public function store(Request $request) { // proses pengisian movie
         $request->validate([
-            'name' => 'required|string|max:255',
-            'cast' => 'nullable|string',
+            'name' => 'required|string|max:255', // required: harus diisi
+            'cast' => 'nullable|string', // nullabel: bisa diisi bisa tidak
             'img_url' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validasi gambar
             'sinopsis' => 'nullable|string',
             'director' => 'nullable|string',
@@ -52,7 +52,7 @@ class MovieController extends Controller
                 'price' => $request->price,
             ]);
         
-            return redirect()->route('movie.index')->with('success', 'Movie added successfully');
+            return redirect()->route('movie.index')->with('success', 'Movie added successfully'); // mengembalikan kehalaman view
         } catch (\Throwable $th) {
             return back()->withErrors('Gagal menambahkan data. Silakan coba lagi.' . $th->getMessage());
         }
