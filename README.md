@@ -44,5 +44,6 @@ APPLICATION FOR MOVIE FANS TO FIND AND WATCH MOVIES IN STREAMING
     ```bash
     php artisan serve
     ```
-    #image ERD
+
+## image ERD
    ![erd](https://github.com/user-attachments/assets/dee40c94-49d6-44b2-9a10-4175a3aca6bc)
