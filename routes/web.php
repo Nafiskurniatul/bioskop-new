@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GenreController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -33,3 +34,8 @@ Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.log
     Route::put('/update/{id}', [MovieController::class, 'update'])->name('movie.update');
     Route::get('/delete/{id}', [MovieController::class, 'delete'])->name('movie.delete');
 // });
+
+    Route::get('/genre/view', [GenreController::class, 'index'])->name('genre.index');
+    Route::get('/genre/add', [GenreController::class, 'create'])->name('genre.add');
+    Route::post('/genre/store', [GenreController::class, 'store'])->name('genre.store');
+

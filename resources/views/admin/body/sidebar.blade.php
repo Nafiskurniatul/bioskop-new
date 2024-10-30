@@ -17,6 +17,12 @@
         <span>Data Movies</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{{ route('genre.index') }}">
+        <i class="bi bi-film"></i>
+        <span>Genre Movies</span>
+      </a>
+    </li>
     
   </ul>
 
