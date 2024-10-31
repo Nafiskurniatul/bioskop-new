@@ -1,0 +1,35 @@
+{
+    "version": 2,
+    "framework": null,
+    "functions": {
+        "api/index.php": { "runtime": "vercel-php@0.7.3" }
+    },
+    "routes": [
+        { "src": "/build/(.*)", "dest": "/public/build/" },
+        { "src": "/(.*)", "dest": "/api/index.php" }
+    ],
+    "public": true,
+    "buildCommand": "vite build",
+    "outputDirectory": "public",
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "true",
+        "APP_URL": "mariadb://bioskop_butwealth:7a80ed1ea29cc3551ff01df2e54709d6ac9e788f@27p31.h.filess.io:3305/bioskop_butwealth",
+        "APP_KEY": "base64:eCr44Qh+BT4sF1qYnU6YUY483fq9jfKdkblN+5CSseo=",
+        "APP_CONFIG_CACHE": "/tmp/config.php",
+        "APP_EVENTS_CACHE": "/tmp/events.php",
+        "APP_PACKAGES_CACHE": "/tmp/packages.php",
+        "APP_ROUTES_CACHE": "/tmp/routes.php",
+        "APP_SERVICES_CACHE": "/tmp/services.php",
+        "VIEW_COMPILED_PATH": "/tmp",
+        "CACHE_DRIVER": "array",
+        "LOG_CHANNEL": "stderr",
+        "SESSION_DRIVER": "database",
+        "DB_CONNECTION": "mysql",
+        "DB_HOST": "27p31.h.filess.io",
+        "DB_PORT": "3305",
+        "DB_DATABASE": "bioskop_butwealth",
+        "DB_USERNAME": "bioskop_butwealth",
+        "DB_PASSWORD": "7a80ed1ea29cc3551ff01df2e54709d6ac9e788f"
+    }
+}
