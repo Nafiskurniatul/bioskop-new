@@ -12,7 +12,7 @@ class Movie extends Model
    
     use HasFactory;
     protected $fillable = [
-        'name', 'cast', 'img_url', 'sinopsis', 'director', 'age', 'duration', 'trailer_url', 'price'
+       'name', 'cast', 'img_url', 'sinopsis', 'director', 'age', 'duration', 'trailer_url', 'price'
     ];
 
     public function genre() {

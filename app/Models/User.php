@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    // objek
+    // enkapsulasi
      protected $fillable = [
         'name',
         'email',

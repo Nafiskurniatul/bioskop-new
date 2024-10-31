@@ -33,6 +33,7 @@ Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.log
     Route::get('/edit/{id}', [MovieController::class, 'edit'])->name('movie.edit');
     Route::put('/update/{id}', [MovieController::class, 'update'])->name('movie.update');
     Route::get('/delete/{id}', [MovieController::class, 'delete'])->name('movie.delete');
+    Route::get('/search', [MovieController::class,'search'])->name('movie.search');
 // });
 
     Route::get('/genre/view', [GenreController::class, 'index'])->name('genre.index');

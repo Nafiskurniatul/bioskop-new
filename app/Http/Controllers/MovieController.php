@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Log;
 class MovieController extends Controller  
 {
     public function index() { 
-        $movies = Movie::all(); // mengambil semua data dari database // object dari class movie
+        $movies = Movie::orderBy('created_at', 'desc')->get(); // mengambil semua data dari database // object dari class movie
         return view('movies.view_movie',[
             'movies' => $movies
         ]);
@@ -18,10 +18,9 @@ class MovieController extends Controller
 
     // menampilkan halaman tambah movie
     public function create() {
-        return view('movies.add_movie'); // menampilkan semua halaman/view
+        return view('movies.add_movie');
     }
 
-    // method create untuk menampilkan halaman tambah movie
     public function store(Request $request) { // proses pengisian movie/
         $request->validate([
             'name' => 'required|string|max:255', // required: harus diisi
@@ -45,8 +44,7 @@ class MovieController extends Controller
 
         }
     
-        try {
-            //objek
+        try {  
             Movie::create([
                 'name' => $request->name,
                 'cast' => $request->cast,
@@ -67,7 +65,6 @@ class MovieController extends Controller
         }
     }
 
-    // overloading
     public function show($id) {
         $movies = Movie::findOrFail($id);
         return view('movies.show_movie', compact('movies'));
@@ -153,4 +150,21 @@ public function delete($id)
     }
 }
 
+public function search(Request $request) {
+    // Ambil query dari input
+    $query = $request->input('query');
+
+    // Lakukan pencarian berdasarkan name atau sinopsis
+    $movies = Movie::where('name', 'LIKE', "%{$query}%")
+                    ->orWhere('sinopsis', 'LIKE', "%{$query}%")
+                    ->get();
+    
+    // Kembalikan hasil pencarian ke view view_movie.blade.php
+    return view('movies.view_movie', [
+        'movies' => $movies,
+        'query' => $query,
+        'title' => 'Movie',
+    ]);
+}
+ 
 }
